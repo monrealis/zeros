@@ -20,6 +20,13 @@ public class ZerosCounterTest {
 		assertEquals(bytes.length, countMax());
 	}
 
+	@Test
+	public void countsOnlyZeros() {
+		bytes = new byte[10];
+		bytes[0] = 1;
+		assertEquals(9, countMax());
+	}
+
 	private int countMax() {
 		ZerosCounter counter = new ZerosCounter(new ByteArrayInputStream(bytes));
 		return counter.findLongestChain();

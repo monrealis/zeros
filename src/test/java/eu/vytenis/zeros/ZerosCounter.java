@@ -13,8 +13,10 @@ public class ZerosCounter {
 	public int findLongestChain() {
 		try {
 			int r = 0;
-			while (input.read() >= 0)
-				r++;
+			int b;
+			while ((b = input.read()) >= 0)
+				if (b == 0)
+					r++;
 			return r;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
