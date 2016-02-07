@@ -6,6 +6,8 @@ import java.io.ByteArrayInputStream;
 
 import org.junit.Test;
 
+import eu.vytenis.zeros.streams.InputStreamInput;
+
 public class ZerosCounterTest {
 	private byte[] bytes = new byte[] {};
 
@@ -28,7 +30,11 @@ public class ZerosCounterTest {
 	}
 
 	private int countMax() {
-		ZerosCounter counter = new ZerosCounter(new ByteArrayInputStream(bytes));
+		ZerosCounter counter = new ZerosCounter(createInput());
 		return counter.findLongestChain();
+	}
+
+	private InputStreamInput createInput() {
+		return new InputStreamInput(new ByteArrayInputStream(bytes));
 	}
 }

@@ -1,17 +1,14 @@
 package eu.vytenis.zeros;
 
-import java.io.InputStream;
-
 import eu.vytenis.zeros.input.ByteInput;
 import eu.vytenis.zeros.input.EndOfInputException;
-import eu.vytenis.zeros.streams.InputStreamInput;
 
 public class ZerosCounter {
 	private final ByteInput input;
 	private int result = 0;
 
-	public ZerosCounter(InputStream input) {
-		this.input = new InputStreamInput(input);
+	public ZerosCounter(ByteInput input) {
+		this.input = input;
 	}
 
 	public int findLongestChain() {
