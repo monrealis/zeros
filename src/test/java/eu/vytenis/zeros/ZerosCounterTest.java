@@ -29,6 +29,13 @@ public class ZerosCounterTest {
 		assertEquals(9, countMax());
 	}
 
+	@Test
+	public void findsMax() {
+		bytes = new byte[10];
+		bytes[4] = 1;
+		assertEquals(5, countMax());
+	}
+
 	private int countMax() {
 		ZerosCounter counter = new ZerosCounter(createInput());
 		return counter.findLongestChain();
