@@ -30,9 +30,15 @@ public class ZerosCounterTest {
 	}
 
 	@Test
-	public void findsMax() {
+	public void findsMaxAtEnd() {
 		bytes = new byte[10];
 		bytes[4] = 1;
+		assertEquals(5, countMax());
+	}
+	@Test
+	public void findsMaxNotAtEnd() {
+		bytes = new byte[10];
+		bytes[5] = 1;
 		assertEquals(5, countMax());
 	}
 

@@ -5,7 +5,7 @@ import eu.vytenis.zeros.input.EndOfInputException;
 
 public class ZerosCounter {
 	private final ByteInput input;
-	private int result = 0;
+	private int longestChainOfZeros = 0;
 
 	public ZerosCounter(ByteInput input) {
 		this.input = input;
@@ -13,7 +13,7 @@ public class ZerosCounter {
 
 	public int findLongestChain() {
 		findResult();
-		return result;
+		return longestChainOfZeros;
 	}
 
 	private void findResult() {
@@ -26,11 +26,15 @@ public class ZerosCounter {
 
 	private void tryFindResult() throws EndOfInputException {
 		int b;
-		while ((b = read()) >= 0)
+		int current = 0;
+		while ((b = read()) >= 0) {
 			if (b == 0)
-				result++;
-			else
-				result = 0;
+				current++;
+			if (current > longestChainOfZeros)
+				longestChainOfZeros = current;
+			if (b != 0)
+				current = 0;
+		}
 	}
 
 	private int read() throws EndOfInputException {
