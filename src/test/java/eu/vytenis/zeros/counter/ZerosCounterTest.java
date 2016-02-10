@@ -1,4 +1,4 @@
-package eu.vytenis.zeros;
+package eu.vytenis.zeros.counter;
 
 import static org.junit.Assert.assertEquals;
 

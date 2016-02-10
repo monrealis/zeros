@@ -1,4 +1,4 @@
-package eu.vytenis.zeros;
+package eu.vytenis.zeros.counter;
 
 import eu.vytenis.zeros.input.ByteInput;
 import eu.vytenis.zeros.input.EndOfInputException;
