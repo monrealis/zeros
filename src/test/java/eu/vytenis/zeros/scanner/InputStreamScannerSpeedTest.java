@@ -1,4 +1,4 @@
-package eu.vytenis.zeros;
+package eu.vytenis.zeros.scanner;
 
 import static org.junit.Assume.assumeTrue;
 

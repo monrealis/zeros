@@ -1,4 +1,4 @@
-package eu.vytenis.zeros;
+package eu.vytenis.zeros.scanner;
 
 import java.io.BufferedInputStream;
 import java.io.File;
