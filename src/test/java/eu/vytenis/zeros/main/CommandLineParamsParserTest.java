@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class MainTest {
+public class CommandLineParamsParserTest {
     private List<String> params = new ArrayList<String>();
 
     @Test
@@ -29,7 +29,9 @@ public class MainTest {
         assertEquals(2, create().sources.size());
     }
 
-    private Main create() {
-        return new Main(params.toArray(new String[] {}));
+    private CommandLineParamsParser create() {
+        CommandLineParamsParser p = new CommandLineParamsParser(params.toArray(new String[] {}));
+        p.parse();
+        return p;
     }
 }

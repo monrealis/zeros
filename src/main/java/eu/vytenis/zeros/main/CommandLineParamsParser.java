@@ -8,10 +8,15 @@ import java.util.List;
 import eu.vytenis.zeros.input.ByteInput;
 import eu.vytenis.zeros.streams.InputStreamInput;
 
-public class Main {
+public class CommandLineParamsParser {
+    private final String[] args;
     List<ByteInputSource> sources = new ArrayList<ByteInputSource>();
 
-    public Main(String[] args) {
+    public CommandLineParamsParser(String[] args) {
+        this.args = args;
+    }
+
+    public void parse() {
         for (final String arg : args)
             sources.add(new ByteInputSource() {
                 public ByteInput createInput() {
@@ -22,13 +27,5 @@ public class Main {
                     }
                 }
             });
-    }
-
-    public static void main(String[] args) {
-        new Main(args).run();
-    }
-
-    public void run() {
-
     }
 }
