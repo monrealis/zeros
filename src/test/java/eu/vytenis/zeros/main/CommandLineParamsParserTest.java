@@ -13,7 +13,7 @@ public class CommandLineParamsParserTest {
 
     @Test
     public void withEmptyParams_zeroSources() {
-        assertEquals(emptyList(), create().sources);
+        assertEquals(1, create().sources.size());
     }
 
     @Test
@@ -30,7 +30,8 @@ public class CommandLineParamsParserTest {
     }
 
     private CommandLineParamsParser create() {
-        CommandLineParamsParser p = new CommandLineParamsParser(params.toArray(new String[] {}));
+        CommandLineParamsParser p = new CommandLineParamsParser(
+                params.toArray(new String[] {}));
         p.parse();
         return p;
     }
