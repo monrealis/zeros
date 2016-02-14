@@ -1,6 +1,5 @@
 package eu.vytenis.zeros.main;
 
-import static java.util.Collections.emptyList;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
