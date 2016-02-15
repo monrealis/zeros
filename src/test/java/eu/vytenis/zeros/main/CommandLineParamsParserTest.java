@@ -9,29 +9,45 @@ import org.junit.Test;
 
 public class CommandLineParamsParserTest {
     private List<String> params = new ArrayList<String>();
+    private String sources;
 
     @Test
-    public void withEmptyParams_zeroSources() {
-        assertEquals(1, create().sources.size());
+    public void withEmptyParams_oneSource() {
+        parse();
+        assertEquals("F", sources);
     }
 
     @Test
     public void withOneParam_oneSource() {
         params.add("file1.txt");
-        assertEquals(1, create().sources.size());
+        parse();
+        assertEquals("F", sources);
     }
 
     @Test
     public void withTwoParams_twoSources() {
         params.add("file1.txt");
         params.add("file2.txt");
-        assertEquals(2, create().sources.size());
+        parse();
+        assertEquals("FF", sources);
     }
 
-    private CommandLineParamsParser create() {
+    private void parse() {
         CommandLineParamsParser p = new CommandLineParamsParser(
                 params.toArray(new String[] {}));
         p.parse();
-        return p;
+        collectSources(p);
+    }
+
+    private void collectSources(CommandLineParamsParser p) {
+        sources = "";
+        for (ByteInputSource o : p.sources)
+            sources += abbreviate(o);
+    }
+
+    private String abbreviate(ByteInputSource source) {
+        if (source instanceof FileInput)
+            return "F";
+        throw new IllegalArgumentException();
     }
 }
