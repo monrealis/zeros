@@ -14,7 +14,7 @@ public class CommandLineParamsParserTest {
     @Test
     public void withEmptyParams_oneSource() {
         parse();
-        assertEquals("F", sources);
+        assertEquals("I", sources);
     }
 
     @Test
@@ -48,6 +48,8 @@ public class CommandLineParamsParserTest {
     private String abbreviate(ByteInputSource source) {
         if (source instanceof FileInput)
             return "F";
+        if (source instanceof StdInInput)
+            return "I";
         throw new IllegalArgumentException();
     }
 }

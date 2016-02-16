@@ -6,7 +6,7 @@ import java.io.IOException;
 import eu.vytenis.zeros.input.ByteInput;
 import eu.vytenis.zeros.streams.InputStreamInput;
 
-class FileInput implements ByteInputSource {
+public class FileInput implements ByteInputSource {
     private final String fileName;
 
     FileInput(String fileName) {

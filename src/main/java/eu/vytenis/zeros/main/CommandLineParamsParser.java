@@ -14,8 +14,15 @@ public class CommandLineParamsParser {
     }
 
     public void parse() {
-        for (final String arg : getArgumentsForInputs())
-            sources.add(new FileInput(arg));
+        for (String arg : getArgumentsForInputs())
+            sources.add(createSource(arg));
+    }
+
+    private ByteInputSource createSource(String argument) {
+        if ("-".equals(argument))
+            return new StdInInput();
+        else
+            return new FileInput(argument);
     }
 
     private List<String> getArgumentsForInputs() {
