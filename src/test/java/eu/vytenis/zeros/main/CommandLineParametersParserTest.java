@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class CommandLineParamsParserTest {
+public class CommandLineParametersParserTest {
     private List<String> params = new ArrayList<String>();
     private String sources;
 
@@ -33,13 +33,13 @@ public class CommandLineParamsParserTest {
     }
 
     private void parse() {
-        CommandLineParamsParser p = new CommandLineParamsParser(
+        CommandLineParametersParser p = new CommandLineParametersParser(
                 params.toArray(new String[] {}));
         p.parse();
         collectSources(p);
     }
 
-    private void collectSources(CommandLineParamsParser p) {
+    private void collectSources(CommandLineParametersParser p) {
         sources = "";
         for (ByteInputSource o : p.sources)
             sources += abbreviate(o);

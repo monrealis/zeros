@@ -5,11 +5,11 @@ import static java.util.Arrays.asList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandLineParamsParser {
+public class CommandLineParametersParser {
     private final String[] arguments;
     List<ByteInputSource> sources = new ArrayList<ByteInputSource>();
 
-    public CommandLineParamsParser(String[] arguments) {
+    public CommandLineParametersParser(String[] arguments) {
         this.arguments = arguments;
     }
 
