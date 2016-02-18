@@ -18,10 +18,16 @@ public class CommandLineParametersParserTest {
     }
 
     @Test
-    public void withOneParam_oneSource() {
-        params.add("file1.txt");
+    public void withStdinParam_oneSource() {
         parse();
-        assertEquals("F", sources);
+        assertEquals("I", sources);
+    }
+
+    @Test
+    public void withOneParam_oneSource() {
+        params.add("-");
+        parse();
+        assertEquals("I", sources);
     }
 
     @Test
@@ -30,6 +36,16 @@ public class CommandLineParametersParserTest {
         params.add("file2.txt");
         parse();
         assertEquals("FF", sources);
+    }
+
+    @Test
+    public void withVariousParams_variousSources() {
+        params.add("file1.txt");
+        params.add("-");
+        params.add("file2.txt");
+        params.add("-");
+        parse();
+        assertEquals("FIFI", sources);
     }
 
     private void parse() {
