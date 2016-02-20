@@ -9,7 +9,7 @@ import eu.vytenis.zeros.streams.InputStreamInput;
 public class FileInput implements ByteInputSource {
     private final String fileName;
 
-    FileInput(String fileName) {
+    public FileInput(String fileName) {
         this.fileName = fileName;
     }
 
